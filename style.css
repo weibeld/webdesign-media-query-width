@@ -1,0 +1,82 @@
+html {
+  font-family: "Open Sans", sans-serif;
+  font-size: 30px;
+}
+
+body { margin: 0; }
+
+/* Include border and padding in width (important if doing width arithmetic) */
+* { box-sizing: border-box; }
+
+/* Container elements whose width and arrangement varies based on screen width */
+.container{
+  height: 200px;
+  float: left;
+  padding: 15px;
+  /* Vertically center content */
+  display: flex;
+  align-items: center;
+  /*----------------------------------------------------------------------------*
+   * PHONE WIDTH (default setting)
+   * - Each container spans the whole screen
+   * - The width assigned to the corresponding HTML elements here may be over-
+   *   written by the rules of the width-tablet-* and width-destkop-* classes
+   *     - These classes are only defined if the screen has a certain min width
+   * - The order of the width rules for PHONE, TABLET, and DESKTOP matters,
+   *   because rules can only be overwritten by rules occurring later in the doc
+  /*----------------------------------------------------------------------------*/
+  width: 100%;
+}
+
+/*----------------------------------------------------------------------------*
+ * TABLET WIDTH
+ * - These rules take only effect if screen width >= 600 px
+ * - The width value here overwrites the one assigned by the 'container' class
+/*----------------------------------------------------------------------------*/
+@media only screen and (min-width: 600px) {
+  .width-tablet-50 { width: 50%; }
+  .width-tablet-100 { width: 100%; }
+}
+
+/*----------------------------------------------------------------------------*
+ * DESKTOP WIDTH
+ * - These rules take only effect if screen width >= 768 px
+ * - The width value here overwrites the one assigned by width-tablet-* classes
+ *----------------------------------------------------------------------------*/
+@media only screen and (min-width: 768px) {
+  .width-desktop-33 { width: 33.333%; }
+}
+
+/* The content of each container */
+.content {
+  background-color: black;
+  color: #E9E9E9;
+  width: 100%;
+  text-align: center;
+}
+
+/* Since containers are floating, we need this to take into account their space */
+main::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+main {
+  padding: 20px;
+}
+
+header, footer {
+  height: 80px;
+  background-color: #1D1425;
+  /* Horizontally and vertically align content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header p, footer p {
+  margin: 0;
+  color: #E9E9E9;
+  font-size: 0.65rem;
+}
