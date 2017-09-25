@@ -1,6 +1,6 @@
 # Media Query Screen Width
 
-[Check it out](https://weibeld.github.io/media-query-screen-width/)
+[Check it out](https://weibeld.github.io/webdesign-media-query-width/)
 
 ![GIF Walkthrough](walkthrough.gif)
 
